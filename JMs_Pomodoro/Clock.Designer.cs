@@ -77,6 +77,7 @@
             this.button_ResetClock.TabIndex = 3;
             this.button_ResetClock.Text = "Reset Clock";
             this.button_ResetClock.UseVisualStyleBackColor = true;
+            this.button_ResetClock.Click += new System.EventHandler(this.button_ResetClock_Click);
             // 
             // Clock
             // 

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassCountDownTimer.cs" />
     <Compile Include="Clock.cs">
       <SubType>Form</SubType>
     </Compile>
