@@ -22,6 +22,7 @@ namespace JMs_Pomodoro
             Init_CDTimer();
         }
 
+
         private void Init_CDTimer()
         {
             CDTimer = new CountDownTimer(59, 59);
@@ -33,6 +34,34 @@ namespace JMs_Pomodoro
 
 
         /// <summary>
+        /// 工作倒數完後的動作
+        /// </summary>
+        private void Work_count_down_finished()
+        {
+            label_num_of_tomato.Text += $"O_";
+            Init_CDTimer();
+        }
+
+        /// <summary>
+        /// 已完成的番茄鐘
+        /// </summary>
+        private class Tomato
+        {
+            public DateTime Tomato_StartTime;
+            public int Tomato_Duration = 25;
+            public string Work_description = "";
+        }
+
+        /// <summary>
+        /// 被打算的時間記錄
+        /// </summary>
+        private class Interruption
+        {
+            public DateTime interrupt_time;
+            public string Work_description = "";
+        }
+
+        /// <summary>
         /// 按一下開始計時, 再按一下取消計時
         /// </summary>
         /// <param name="sender"></param>
@@ -40,7 +69,7 @@ namespace JMs_Pomodoro
         private void button_Start_Work_Click(object sender, EventArgs e)
         {
             ActiveForm.TopMost = true;
-            Click_timer(25);
+            Click_on_Timer(25);
             Digit_clock.BackColor = Color.Red;
         }
 
@@ -53,7 +82,7 @@ namespace JMs_Pomodoro
         private void button_Start_Rest_Click(object sender, EventArgs e)
         {
             ActiveForm.TopMost = true;
-            Click_timer(5);
+            Click_on_Timer(5);
             Digit_clock.BackColor = Color.Green;
         }
 
@@ -63,7 +92,7 @@ namespace JMs_Pomodoro
         /// input: 設定倒數幾分鐘 
         /// </summary>
         /// <param name="set_time_min"></param>
-        private void Click_timer(int set_time_min, int set_time_sec = 0)
+        private void Click_on_Timer(int set_time_min, int set_time_sec = 0)
         {
             if (CDTimer.IsRunnign)
             {
@@ -78,15 +107,6 @@ namespace JMs_Pomodoro
             {
                 CDTimer.Start();
             }
-        }
-
-        /// <summary>
-        /// 工作倒數完後的動作
-        /// </summary>
-        private void Work_count_down_finished()
-        {
-            label_num_of_tomato.Text += $"O_";
-            Init_CDTimer();
         }
 
 
@@ -132,6 +152,16 @@ namespace JMs_Pomodoro
                 ActiveForm.TopMost = true;
                 btn_pin.BackColor = Color.Red;
             }
+        }
+
+        private void button_Commit_MSG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_interupted_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
