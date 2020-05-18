@@ -43,6 +43,7 @@
             this.button_Commit_MSG = new System.Windows.Forms.Button();
             this.richTextBox_Interuption = new System.Windows.Forms.RichTextBox();
             this.button_interupted = new System.Windows.Forms.Button();
+            this.button_OpenFolder = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -108,9 +109,8 @@
             this.label_num_of_tomato.ForeColor = System.Drawing.Color.Red;
             this.label_num_of_tomato.Location = new System.Drawing.Point(80, 6);
             this.label_num_of_tomato.Name = "label_num_of_tomato";
-            this.label_num_of_tomato.Size = new System.Drawing.Size(19, 23);
+            this.label_num_of_tomato.Size = new System.Drawing.Size(0, 23);
             this.label_num_of_tomato.TabIndex = 4;
-            this.label_num_of_tomato.Text = "_";
             this.label_num_of_tomato.DoubleClick += new System.EventHandler(this.label_num_of_tomato_DoubleClick);
             this.label_num_of_tomato.MouseHover += new System.EventHandler(this.label_num_of_tomato_MouseHover);
             // 
@@ -208,11 +208,23 @@
             this.button_interupted.UseVisualStyleBackColor = true;
             this.button_interupted.Click += new System.EventHandler(this.button_interupted_Click);
             // 
+            // button_OpenFolder
+            // 
+            this.button_OpenFolder.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_OpenFolder.Location = new System.Drawing.Point(205, 6);
+            this.button_OpenFolder.Name = "button_OpenFolder";
+            this.button_OpenFolder.Size = new System.Drawing.Size(173, 23);
+            this.button_OpenFolder.TabIndex = 12;
+            this.button_OpenFolder.Text = "Open Folder in File Explorer";
+            this.button_OpenFolder.UseVisualStyleBackColor = true;
+            this.button_OpenFolder.Click += new System.EventHandler(this.button_OpenFolder_Click);
+            // 
             // Clock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 219);
+            this.Controls.Add(this.button_OpenFolder);
             this.Controls.Add(this.button_Commit_MSG);
             this.Controls.Add(this.richTextBox_Interuption);
             this.Controls.Add(this.TextBox_Job_description);
@@ -249,6 +261,7 @@
         private System.Windows.Forms.Button button_Commit_MSG;
         private System.Windows.Forms.RichTextBox richTextBox_Interuption;
         private System.Windows.Forms.Button button_interupted;
+        private System.Windows.Forms.Button button_OpenFolder;
     }
 }
 
