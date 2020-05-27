@@ -40,13 +40,14 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_pin = new System.Windows.Forms.Button();
             this.TextBox_Job_description = new System.Windows.Forms.RichTextBox();
-            this.button_Commit_MSG = new System.Windows.Forms.Button();
-            this.richTextBox_Interuption = new System.Windows.Forms.RichTextBox();
-            this.button_interupted = new System.Windows.Forms.Button();
             this.button_OpenFolder = new System.Windows.Forms.Button();
+            this.button_Commit_MSG = new System.Windows.Forms.Button();
+            this.dgv_tomato_table = new System.Windows.Forms.DataGridView();
+            this.button_Zoom = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tomato_table)).BeginInit();
             this.SuspendLayout();
             // 
             // Digit_clock
@@ -164,7 +165,7 @@
             // 
             this.btn_pin.Location = new System.Drawing.Point(3, 6);
             this.btn_pin.Name = "btn_pin";
-            this.btn_pin.Size = new System.Drawing.Size(75, 23);
+            this.btn_pin.Size = new System.Drawing.Size(71, 23);
             this.btn_pin.TabIndex = 7;
             this.btn_pin.Text = "Pin on Top ";
             this.btn_pin.UseVisualStyleBackColor = true;
@@ -172,41 +173,11 @@
             // 
             // TextBox_Job_description
             // 
-            this.TextBox_Job_description.Location = new System.Drawing.Point(205, 35);
+            this.TextBox_Job_description.Location = new System.Drawing.Point(3, 222);
             this.TextBox_Job_description.Name = "TextBox_Job_description";
-            this.TextBox_Job_description.Size = new System.Drawing.Size(222, 69);
+            this.TextBox_Job_description.Size = new System.Drawing.Size(196, 69);
             this.TextBox_Job_description.TabIndex = 8;
             this.TextBox_Job_description.Text = "";
-            // 
-            // button_Commit_MSG
-            // 
-            this.button_Commit_MSG.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Commit_MSG.Location = new System.Drawing.Point(205, 110);
-            this.button_Commit_MSG.Name = "button_Commit_MSG";
-            this.button_Commit_MSG.Size = new System.Drawing.Size(173, 23);
-            this.button_Commit_MSG.TabIndex = 0;
-            this.button_Commit_MSG.Text = "Commit Msg to current Tomato";
-            this.button_Commit_MSG.UseVisualStyleBackColor = true;
-            this.button_Commit_MSG.Click += new System.EventHandler(this.button_Commit_MSG_Click);
-            // 
-            // richTextBox_Interuption
-            // 
-            this.richTextBox_Interuption.Location = new System.Drawing.Point(205, 139);
-            this.richTextBox_Interuption.Name = "richTextBox_Interuption";
-            this.richTextBox_Interuption.Size = new System.Drawing.Size(222, 51);
-            this.richTextBox_Interuption.TabIndex = 10;
-            this.richTextBox_Interuption.Text = "";
-            // 
-            // button_interupted
-            // 
-            this.button_interupted.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold);
-            this.button_interupted.Location = new System.Drawing.Point(205, 193);
-            this.button_interupted.Name = "button_interupted";
-            this.button_interupted.Size = new System.Drawing.Size(84, 23);
-            this.button_interupted.TabIndex = 11;
-            this.button_interupted.Text = "Interupted";
-            this.button_interupted.UseVisualStyleBackColor = true;
-            this.button_interupted.Click += new System.EventHandler(this.button_interupted_Click);
             // 
             // button_OpenFolder
             // 
@@ -219,16 +190,46 @@
             this.button_OpenFolder.UseVisualStyleBackColor = true;
             this.button_OpenFolder.Click += new System.EventHandler(this.button_OpenFolder_Click);
             // 
+            // button_Commit_MSG
+            // 
+            this.button_Commit_MSG.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Commit_MSG.Location = new System.Drawing.Point(3, 297);
+            this.button_Commit_MSG.Name = "button_Commit_MSG";
+            this.button_Commit_MSG.Size = new System.Drawing.Size(194, 23);
+            this.button_Commit_MSG.TabIndex = 0;
+            this.button_Commit_MSG.Text = "Commit Msg to current Tomato";
+            this.button_Commit_MSG.UseVisualStyleBackColor = true;
+            this.button_Commit_MSG.Click += new System.EventHandler(this.button_Commit_MSG_Click);
+            // 
+            // dgv_tomato_table
+            // 
+            this.dgv_tomato_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_tomato_table.Location = new System.Drawing.Point(205, 35);
+            this.dgv_tomato_table.Name = "dgv_tomato_table";
+            this.dgv_tomato_table.RowTemplate.Height = 24;
+            this.dgv_tomato_table.Size = new System.Drawing.Size(712, 285);
+            this.dgv_tomato_table.TabIndex = 13;
+            // 
+            // button_Zoom
+            // 
+            this.button_Zoom.Location = new System.Drawing.Point(81, 6);
+            this.button_Zoom.Name = "button_Zoom";
+            this.button_Zoom.Size = new System.Drawing.Size(48, 23);
+            this.button_Zoom.TabIndex = 14;
+            this.button_Zoom.Text = "ZOOM";
+            this.button_Zoom.UseVisualStyleBackColor = true;
+            this.button_Zoom.Click += new System.EventHandler(this.button_Zoom_Click);
+            // 
             // Clock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 219);
+            this.ClientSize = new System.Drawing.Size(923, 327);
+            this.Controls.Add(this.button_Zoom);
+            this.Controls.Add(this.dgv_tomato_table);
             this.Controls.Add(this.button_OpenFolder);
             this.Controls.Add(this.button_Commit_MSG);
-            this.Controls.Add(this.richTextBox_Interuption);
             this.Controls.Add(this.TextBox_Job_description);
-            this.Controls.Add(this.button_interupted);
             this.Controls.Add(this.btn_pin);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label_num_of_tomato);
@@ -240,6 +241,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_tomato_table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,10 +260,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button btn_pin;
         private System.Windows.Forms.RichTextBox TextBox_Job_description;
-        private System.Windows.Forms.Button button_Commit_MSG;
-        private System.Windows.Forms.RichTextBox richTextBox_Interuption;
-        private System.Windows.Forms.Button button_interupted;
         private System.Windows.Forms.Button button_OpenFolder;
+        private System.Windows.Forms.Button button_Commit_MSG;
+        private System.Windows.Forms.DataGridView dgv_tomato_table;
+        private System.Windows.Forms.Button button_Zoom;
     }
 }
 

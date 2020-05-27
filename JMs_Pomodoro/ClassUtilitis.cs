@@ -48,8 +48,8 @@ namespace JMs_Pomodoro
                 using (StreamReader file = File.OpenText(FilePath))
                 {
                     JsonSerializer serializer = new JsonSerializer();
-                    var movie2 = serializer.Deserialize(file, typeof(T));
-                    return movie2;
+                    var ReadData = serializer.Deserialize(file, typeof(T));
+                    return ReadData;
                 }
             }
 

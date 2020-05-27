@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,9 +30,12 @@ namespace JMs_Pomodoro
             InitializeComponent();
             Init_CDTimer();
             Tomato_bucket = (List<Tomato>)SaveTomato.Deserialize_JSON_from_a_file<List<Tomato>>(Tomato_bucket);
-            
+
             for (int i = 0; i < Tomato_bucket.Count; i++)
                 label_num_of_tomato.Text += $"O ";
+
+            Update_TomatoList_to_DataGridView();
+
         }
 
 
@@ -53,7 +57,7 @@ namespace JMs_Pomodoro
 
             Current_Tomato.Work_description = TextBox_Job_description.Text;
             Tomato_bucket.Add(Current_Tomato);
-            SaveTomato.Serialize_JSON_to_a_file<List<Tomato>>(Tomato_bucket);
+            SaveTomato.Serialize_JSON_to_a_file(Tomato_bucket);
 
             label_num_of_tomato.Text += $"O ";
             Init_CDTimer();
@@ -69,6 +73,26 @@ namespace JMs_Pomodoro
             public int Tomato_Duration = 25;
             public string Work_description = "";
         }
+
+        private void Update_TomatoList_to_DataGridView()
+        {
+
+            dgv_tomato_table.DataSource = Tomato_bucket.Select(
+                Tomato => new
+                {
+                    Tomato.Tomato_StartTime,
+                    Tomato.TomatoType,
+                    Tomato.Tomato_Duration,
+                    Tomato.Work_description
+                }).ToList(); ;
+        }
+
+
+        private void Save_DataGridView_to_JSON_Tomato()
+        {
+            SaveTomato.Serialize_JSON_to_a_file(dgv_tomato_table.DataSource);
+        }
+
 
         /// <summary>
         /// 被打算的時間記錄
@@ -201,11 +225,8 @@ namespace JMs_Pomodoro
                 Tomato_bucket[Tomato_bucket.Count - 1] = Current_Tomato;
 
             SaveTomato.Serialize_JSON_to_a_file<List<Tomato>>(Tomato_bucket);
-        }
 
-        private void button_interupted_Click(object sender, EventArgs e)
-        {
-
+            Update_TomatoList_to_DataGridView();
         }
 
         private void button_OpenFolder_Click(object sender, EventArgs e)
@@ -216,6 +237,18 @@ namespace JMs_Pomodoro
                 Directory.CreateDirectory(TomatpPath);
 
             Process.Start($".\\TomatoLog\\");
+        }
+
+        private void button_Zoom_Click(object sender, EventArgs e)
+        {
+            if (this.Size == new Size(939, 366))
+            {
+                this.Size = new Size(219, 366);
+            }
+            else
+            {
+                this.Size = new Size(939, 366);
+            }
         }
     }
 }
