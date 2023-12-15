@@ -32,36 +32,38 @@ namespace JMs_Pomodoro
             Tomato_bucket = (List<Tomato>)SaveTomato.Deserialize_JSON_from_a_file<List<Tomato>>(Tomato_bucket);
 
             for (int i = 0; i < Tomato_bucket.Count; i++)
-                label_num_of_tomato.Text += $"O ";
+                label_num_of_tomato.Text += $"🍅 ";
 
             Update_TomatoList_to_DataGridView();
 
+            // 預設成小視窗模式 
+            this.Size = new Size(219, 400);
         }
 
 
         private void Init_CDTimer()
         {
-            CDTimer = new CountDownTimer(59, 59);
-            Digit_clock.Text = $"00:00";
+            CDTimer = new CountDownTimer(00, 00);
             CDTimer.TimeChanged += () => Digit_clock.Text = CDTimer.TimeLeftMsStr;
-            CDTimer.CountDownFinished += new Action(Work_count_down_finished);
 
+            Digit_clock.Text = $"00:00";
         }
 
 
         /// <summary>
-        /// 工作倒數完後的動作
+        /// 重製UI狀態
         /// </summary>
-        private void Work_count_down_finished()
+        private void reset_UI_item()
         {
+            button_Start_Rest.Enabled = true;
+            button_Start_Work.Enabled = true;
+            TextBox_Job_description.Text = "";
 
-            Current_Tomato.Work_description = TextBox_Job_description.Text;
-            Tomato_bucket.Add(Current_Tomato);
-            SaveTomato.Serialize_JSON_to_a_file(Tomato_bucket);
+            Digit_clock.BackColor = Color.LightSteelBlue;
 
-            label_num_of_tomato.Text += $"O ";
-            Init_CDTimer();
+            Current_Tomato = new Tomato();
         }
+
 
         /// <summary>
         /// 已完成的番茄鐘
@@ -69,6 +71,7 @@ namespace JMs_Pomodoro
         private class Tomato
         {
             public DateTime Tomato_StartTime;
+            public DateTime Tomato_EndTime;
             public string TomatoType = "work";
             public int Tomato_Duration = 25;
             public string Work_description = "";
@@ -112,14 +115,16 @@ namespace JMs_Pomodoro
         {
             int Set_time_minute = 25;
             ActiveForm.TopMost = true;
-            Click_on_Timer(Set_time_minute);
-            Digit_clock.BackColor = Color.Red;
+            Click_on_Timer(Set_time_minute, Color.Red);
+
+            if (CDTimer.IsRunnign)
+                button_Start_Rest.Enabled = false;
+
 
             Current_Tomato = new Tomato
             {
                 Tomato_StartTime = DateTime.Now,
                 TomatoType = "work",
-                Tomato_Duration = Set_time_minute
             };
 
 
@@ -136,14 +141,16 @@ namespace JMs_Pomodoro
             int Set_time_minute = 5;
 
             ActiveForm.TopMost = true;
-            Click_on_Timer(Set_time_minute);
-            Digit_clock.BackColor = Color.Green;
+            Click_on_Timer(Set_time_minute, Color.Green);
+            if (CDTimer.IsRunnign)
+                button_Start_Work.Enabled = false;
+
+            TextBox_Job_description.Text = "Rest";
 
             Current_Tomato = new Tomato
             {
                 Tomato_StartTime = DateTime.Now,
                 TomatoType = "rest",
-                Tomato_Duration = Set_time_minute
             };
         }
 
@@ -153,13 +160,15 @@ namespace JMs_Pomodoro
         /// input: 設定倒數幾分鐘 
         /// </summary>
         /// <param name="set_time_min"></param>
-        private void Click_on_Timer(int set_time_min, int set_time_sec = 0)
+        private void Click_on_Timer(int set_time_min, Color color, int set_time_sec = 0)
         {
+            Digit_clock.BackColor = color;
+
             if (CDTimer.IsRunnign)
             {
                 CDTimer.Pause();
             }
-            else if (CDTimer.TimeLeft == new DateTime(1, 1, 1, 0, 59, 59))
+            else if (CDTimer.TimeLeft == new DateTime(1, 1, 1, 0, 0, 0))
             {
                 CDTimer.SetTime(set_time_min, set_time_sec);
                 CDTimer.Start();
@@ -175,7 +184,7 @@ namespace JMs_Pomodoro
         {
             CDTimer.Stop();
             Init_CDTimer();
-            Digit_clock.BackColor = Color.LightSteelBlue;
+            reset_UI_item();
         }
 
         /// <summary>
@@ -191,7 +200,7 @@ namespace JMs_Pomodoro
             {
                 CDTimer.Stop();
                 Init_CDTimer();
-                label_num_of_tomato.Text = $"_";
+                label_num_of_tomato.Text = $"";
 
                 Current_Tomato = new Tomato();
                 Tomato_bucket = new List<Tomato>();
@@ -220,13 +229,25 @@ namespace JMs_Pomodoro
 
         private void button_Commit_MSG_Click(object sender, EventArgs e)
         {
+            if (Current_Tomato.Tomato_StartTime == new DateTime())
+            {
+                Init_CDTimer();
+                reset_UI_item();
+                return;
+            }
             Current_Tomato.Work_description = TextBox_Job_description.Text;
-            if (Tomato_bucket.Count > 0)
-                Tomato_bucket[Tomato_bucket.Count - 1] = Current_Tomato;
+            Current_Tomato.Tomato_EndTime = DateTime.Now;
+            TimeSpan TomatoDuration = Current_Tomato.Tomato_StartTime - Current_Tomato.Tomato_EndTime;
+            Current_Tomato.Tomato_Duration = (int)TomatoDuration.TotalMinutes;
 
-            SaveTomato.Serialize_JSON_to_a_file<List<Tomato>>(Tomato_bucket);
+            Tomato_bucket.Add(Current_Tomato);
+            SaveTomato.Serialize_JSON_to_a_file(Tomato_bucket);
+            label_num_of_tomato.Text += $"🍅 ";
 
             Update_TomatoList_to_DataGridView();
+
+            Init_CDTimer();
+            reset_UI_item();
         }
 
         private void button_OpenFolder_Click(object sender, EventArgs e)
@@ -241,13 +262,13 @@ namespace JMs_Pomodoro
 
         private void button_Zoom_Click(object sender, EventArgs e)
         {
-            if (this.Size == new Size(939, 366))
+            if (this.Size == new Size(800, 400)) 
             {
-                this.Size = new Size(219, 366);
+                this.Size = new Size(219, 400);
             }
             else
             {
-                this.Size = new Size(939, 366);
+                this.Size = new Size(800, 400);
             }
         }
     }
