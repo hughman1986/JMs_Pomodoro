@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clock));
             this.Digit_clock = new System.Windows.Forms.Label();
             this.button_Start_Work = new System.Windows.Forms.Button();
             this.button_Start_Rest = new System.Windows.Forms.Button();
@@ -121,7 +122,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Digit_clock, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 44);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -138,7 +139,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 104);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -155,7 +156,7 @@
             this.tableLayoutPanel2.Controls.Add(this.button_Start_Rest, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -166,7 +167,7 @@
             // btn_pin
             // 
             this.btn_pin.Location = new System.Drawing.Point(4, 7);
-            this.btn_pin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_pin.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pin.Name = "btn_pin";
             this.btn_pin.Size = new System.Drawing.Size(84, 29);
             this.btn_pin.TabIndex = 7;
@@ -177,7 +178,7 @@
             // TextBox_Job_description
             // 
             this.TextBox_Job_description.Location = new System.Drawing.Point(4, 278);
-            this.TextBox_Job_description.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TextBox_Job_description.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox_Job_description.Name = "TextBox_Job_description";
             this.TextBox_Job_description.Size = new System.Drawing.Size(260, 85);
             this.TextBox_Job_description.TabIndex = 8;
@@ -187,7 +188,7 @@
             // 
             this.button_OpenFolder.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_OpenFolder.Location = new System.Drawing.Point(273, 8);
-            this.button_OpenFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_OpenFolder.Margin = new System.Windows.Forms.Padding(4);
             this.button_OpenFolder.Name = "button_OpenFolder";
             this.button_OpenFolder.Size = new System.Drawing.Size(231, 29);
             this.button_OpenFolder.TabIndex = 12;
@@ -199,7 +200,7 @@
             // 
             this.button_Commit_MSG.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Commit_MSG.Location = new System.Drawing.Point(4, 371);
-            this.button_Commit_MSG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_Commit_MSG.Margin = new System.Windows.Forms.Padding(4);
             this.button_Commit_MSG.Name = "button_Commit_MSG";
             this.button_Commit_MSG.Size = new System.Drawing.Size(259, 29);
             this.button_Commit_MSG.TabIndex = 0;
@@ -211,7 +212,7 @@
             // 
             this.dgv_tomato_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_tomato_table.Location = new System.Drawing.Point(273, 44);
-            this.dgv_tomato_table.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_tomato_table.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_tomato_table.Name = "dgv_tomato_table";
             this.dgv_tomato_table.RowHeadersWidth = 51;
             this.dgv_tomato_table.RowTemplate.Height = 24;
@@ -221,7 +222,7 @@
             // button_Zoom
             // 
             this.button_Zoom.Location = new System.Drawing.Point(201, 7);
-            this.button_Zoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_Zoom.Margin = new System.Windows.Forms.Padding(4);
             this.button_Zoom.Name = "button_Zoom";
             this.button_Zoom.Size = new System.Drawing.Size(64, 29);
             this.button_Zoom.TabIndex = 14;
@@ -243,6 +244,7 @@
             this.Controls.Add(this.label_num_of_tomato);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Clock";
             this.Text = "Pomodoro";
