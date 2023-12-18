@@ -25,6 +25,51 @@ namespace JMs_Pomodoro
 
         JSON_File_Operator SaveTomato = new JSON_File_Operator($"./TomatoLog/{DateTime.Now.ToString("yyyyMMdd")}/TOMATO.json");
 
+        public class clsConfig
+        {
+
+            public int min_work = 25;
+            public int min_rest = 5;
+
+        }
+
+        public string JsonFilePath = "config.json";
+
+        clsConfig tomato_config = new clsConfig();
+
+        /// <summary>
+        /// 從JSON讀取參數, 若參數不存在產生預設參數並存檔 
+        /// </summary>
+        public void LoadConfig(string jsonfilepath, ref clsConfig config)
+        {
+            try
+            {
+                // 檢查檔案是否存在
+                if (File.Exists(jsonfilepath))
+                {
+                    // 讀取JSON檔案
+                    string jsonContent = File.ReadAllText(jsonfilepath);
+                    // 將JSON轉換為物件
+                    config = JsonConvert.DeserializeObject<clsConfig>(jsonContent);
+                }
+                else
+                {
+                    // 如果檔案不存在，使用預設值
+                    Console.WriteLine("Config file not found. Using default values.");
+                    // 寫入預設設定到JSON檔案
+                    string defaultJson = JsonConvert.SerializeObject(config, Formatting.Indented);
+                    File.WriteAllText(jsonfilepath, defaultJson);
+                }
+            }
+            catch (Exception ex)
+            {
+                // 處理讀取或解析失敗的例外狀況
+                Console.WriteLine($"Error loading config: {ex.Message}");
+            }
+        }
+
+
+
         public Clock()
         {
             InitializeComponent();
@@ -38,6 +83,8 @@ namespace JMs_Pomodoro
 
             // 預設成小視窗模式 
             this.Size = new Size(219, 400);
+
+            LoadConfig(JsonFilePath, ref tomato_config);
         }
 
 
@@ -91,21 +138,6 @@ namespace JMs_Pomodoro
         }
 
 
-        private void Save_DataGridView_to_JSON_Tomato()
-        {
-            SaveTomato.Serialize_JSON_to_a_file(dgv_tomato_table.DataSource);
-        }
-
-
-        /// <summary>
-        /// 被打算的時間記錄
-        /// </summary>
-        private class Interruption
-        {
-            public DateTime interrupt_time;
-            public string Work_description = "";
-        }
-
         /// <summary>
         /// 按一下開始計時, 再按一下取消計時
         /// </summary>
@@ -113,7 +145,7 @@ namespace JMs_Pomodoro
         /// <param name="e"></param>
         private void button_Start_Work_Click(object sender, EventArgs e)
         {
-            int Set_time_minute = 25;
+            int Set_time_minute = tomato_config.min_work;
             ActiveForm.TopMost = true;
             Click_on_Timer(Set_time_minute, Color.Red);
 
@@ -138,7 +170,7 @@ namespace JMs_Pomodoro
         /// <param name="e"></param>
         private void button_Start_Rest_Click(object sender, EventArgs e)
         {
-            int Set_time_minute = 5;
+            int Set_time_minute = tomato_config.min_rest;
 
             ActiveForm.TopMost = true;
             Click_on_Timer(Set_time_minute, Color.Green);
@@ -262,7 +294,7 @@ namespace JMs_Pomodoro
 
         private void button_Zoom_Click(object sender, EventArgs e)
         {
-            if (this.Size == new Size(800, 400)) 
+            if (this.Size == new Size(800, 400))
             {
                 this.Size = new Size(219, 400);
             }
