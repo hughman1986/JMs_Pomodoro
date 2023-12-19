@@ -105,12 +105,13 @@
             // 
             // label_num_of_tomato
             // 
+            this.label_num_of_tomato.AutoSize = true;
             this.label_num_of_tomato.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_num_of_tomato.ForeColor = System.Drawing.Color.Red;
-            this.label_num_of_tomato.Location = new System.Drawing.Point(6, 404);
+            this.label_num_of_tomato.Location = new System.Drawing.Point(8, 405);
             this.label_num_of_tomato.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_num_of_tomato.Name = "label_num_of_tomato";
-            this.label_num_of_tomato.Size = new System.Drawing.Size(38, 40);
+            this.label_num_of_tomato.Size = new System.Drawing.Size(0, 29);
             this.label_num_of_tomato.TabIndex = 4;
             this.label_num_of_tomato.DoubleClick += new System.EventHandler(this.label_num_of_tomato_DoubleClick);
             this.label_num_of_tomato.MouseHover += new System.EventHandler(this.label_num_of_tomato_MouseHover);
@@ -254,6 +255,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tomato_table)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

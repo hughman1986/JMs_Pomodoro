@@ -77,7 +77,8 @@ namespace JMs_Pomodoro
             Tomato_bucket = (List<Tomato>)SaveTomato.Deserialize_JSON_from_a_file<List<Tomato>>(Tomato_bucket);
 
             for (int i = 0; i < Tomato_bucket.Count; i++)
-                label_num_of_tomato.Text += $"🍅 ";
+                if (Tomato_bucket[i].TomatoType == "work")
+                    label_num_of_tomato.Text += $"🍅 ";
 
             Update_TomatoList_to_DataGridView();
 
@@ -92,10 +93,19 @@ namespace JMs_Pomodoro
         {
             CDTimer = new CountDownTimer(00, 00);
             CDTimer.TimeChanged += () => Digit_clock.Text = CDTimer.TimeLeftMsStr;
+            CDTimer.CountDownFinished += new Action(CDTimer_OnCountDownFinished);
 
             Digit_clock.Text = $"00:00";
         }
 
+        /// <summary>
+        /// 計時器倒數完成後的動作: 切換成黃燈以及紀錄結束時間
+        /// </summary>
+        private void CDTimer_OnCountDownFinished()
+        {
+            Digit_clock.BackColor = Color.Yellow;
+            Current_Tomato.Tomato_EndTime = DateTime.Now;
+        }
 
         /// <summary>
         /// 重製UI狀態
@@ -268,13 +278,17 @@ namespace JMs_Pomodoro
                 return;
             }
             Current_Tomato.Work_description = TextBox_Job_description.Text;
-            Current_Tomato.Tomato_EndTime = DateTime.Now;
-            TimeSpan TomatoDuration = Current_Tomato.Tomato_StartTime - Current_Tomato.Tomato_EndTime;
+            if (CDTimer.IsRunnign)
+                Current_Tomato.Tomato_EndTime = DateTime.Now;
+
+            TimeSpan TomatoDuration = Current_Tomato.Tomato_EndTime - Current_Tomato.Tomato_StartTime;
             Current_Tomato.Tomato_Duration = (int)TomatoDuration.TotalMinutes;
 
             Tomato_bucket.Add(Current_Tomato);
             SaveTomato.Serialize_JSON_to_a_file(Tomato_bucket);
-            label_num_of_tomato.Text += $"🍅 ";
+
+            if (Current_Tomato.TomatoType == "work")
+                label_num_of_tomato.Text += $"🍅 ";
 
             Update_TomatoList_to_DataGridView();
 
