@@ -74,11 +74,8 @@ namespace JMs_Pomodoro
         {
             InitializeComponent();
             Init_CDTimer();
-            Tomato_bucket = (List<Tomato>)SaveTomato.Deserialize_JSON_from_a_file<List<Tomato>>(Tomato_bucket);
 
-            for (int i = 0; i < Tomato_bucket.Count; i++)
-                if (Tomato_bucket[i].TomatoType == "work")
-                    label_num_of_tomato.Text += $"🍅 ";
+            load_Todays_data();
 
             Update_TomatoList_to_DataGridView();
 
@@ -86,6 +83,40 @@ namespace JMs_Pomodoro
             this.Size = new Size(219, 400);
 
             LoadConfig(JsonFilePath, ref tomato_config);
+        }
+
+        private void load_Todays_data()
+        {
+            // 從json存檔載入紀錄 
+            Tomato_bucket = (List<Tomato>)SaveTomato.Deserialize_JSON_from_a_file<List<Tomato>>(Tomato_bucket);
+            for (int i = 0; i < Tomato_bucket.Count; i++)
+                if (Tomato_bucket[i].TomatoType == "work")
+                    label_num_of_tomato.Text += $"🍅 ";
+
+            // 載入暫存文字
+            try
+            {
+                string filepath = $"./TomatoLog/tmptxt.txt";
+
+                // 檢查檔案是否存在
+                if (File.Exists(filepath))
+                {
+                    using (StreamReader reader = new StreamReader(filepath))
+                    {
+                        // 從文字檔載入內容
+                        string content = reader.ReadToEnd();
+                        richTextBox_QuickNote.Text = content;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("檔案不存在。");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"發生錯誤: {ex.Message}");
+            }
         }
 
 
@@ -315,6 +346,29 @@ namespace JMs_Pomodoro
             else
             {
                 this.Size = new Size(800, 400);
+            }
+        }
+
+        private void richTextBox_QuickNote_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '\r') // 在儲存格按下enter後的動作
+            {
+                string filepath = $"./TomatoLog/tmptxt.txt";
+
+                try
+                {
+                    // 確認目錄存在，如果不存在就建立
+                    string directoryPath = Path.GetDirectoryName(filepath);
+                    if (!Directory.Exists(directoryPath))
+                        Directory.CreateDirectory(directoryPath);
+
+                    // 將字串寫入文字檔
+                    File.WriteAllText(filepath, richTextBox_QuickNote.Text);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"發生錯誤: {ex.Message}");
+                }
             }
         }
     }

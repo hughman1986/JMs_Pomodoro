@@ -45,6 +45,7 @@
             this.button_Commit_MSG = new System.Windows.Forms.Button();
             this.dgv_tomato_table = new System.Windows.Forms.DataGridView();
             this.button_Zoom = new System.Windows.Forms.Button();
+            this.richTextBox_QuickNote = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -167,13 +168,14 @@
             // 
             // btn_pin
             // 
+            this.btn_pin.BackColor = System.Drawing.Color.Pink;
             this.btn_pin.Location = new System.Drawing.Point(4, 7);
             this.btn_pin.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pin.Name = "btn_pin";
             this.btn_pin.Size = new System.Drawing.Size(84, 29);
             this.btn_pin.TabIndex = 7;
             this.btn_pin.Text = "Pin on Top ";
-            this.btn_pin.UseVisualStyleBackColor = true;
+            this.btn_pin.UseVisualStyleBackColor = false;
             this.btn_pin.Click += new System.EventHandler(this.btn_pin_Click);
             // 
             // TextBox_Job_description
@@ -217,7 +219,7 @@
             this.dgv_tomato_table.Name = "dgv_tomato_table";
             this.dgv_tomato_table.RowHeadersWidth = 51;
             this.dgv_tomato_table.RowTemplate.Height = 24;
-            this.dgv_tomato_table.Size = new System.Drawing.Size(676, 356);
+            this.dgv_tomato_table.Size = new System.Drawing.Size(676, 226);
             this.dgv_tomato_table.TabIndex = 13;
             // 
             // button_Zoom
@@ -231,11 +233,23 @@
             this.button_Zoom.UseVisualStyleBackColor = true;
             this.button_Zoom.Click += new System.EventHandler(this.button_Zoom_Click);
             // 
+            // richTextBox_QuickNote
+            // 
+            this.richTextBox_QuickNote.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.richTextBox_QuickNote.Location = new System.Drawing.Point(273, 278);
+            this.richTextBox_QuickNote.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBox_QuickNote.Name = "richTextBox_QuickNote";
+            this.richTextBox_QuickNote.Size = new System.Drawing.Size(676, 122);
+            this.richTextBox_QuickNote.TabIndex = 15;
+            this.richTextBox_QuickNote.Text = "";
+            this.richTextBox_QuickNote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox_QuickNote_KeyPress);
+            // 
             // Clock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 443);
+            this.Controls.Add(this.richTextBox_QuickNote);
             this.Controls.Add(this.button_Zoom);
             this.Controls.Add(this.dgv_tomato_table);
             this.Controls.Add(this.button_OpenFolder);
@@ -276,6 +290,7 @@
         private System.Windows.Forms.Button button_Commit_MSG;
         private System.Windows.Forms.DataGridView dgv_tomato_table;
         private System.Windows.Forms.Button button_Zoom;
+        private System.Windows.Forms.RichTextBox richTextBox_QuickNote;
     }
 }
 
