@@ -7,7 +7,10 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static JMs_Pomodoro.ClassUtilitis;
@@ -136,6 +139,8 @@ namespace JMs_Pomodoro
         {
             Digit_clock.BackColor = Color.Yellow;
             Current_Tomato.Tomato_EndTime = DateTime.Now;
+
+            Task.Run(() => play_alarm_sound());
         }
 
         /// <summary>
@@ -370,6 +375,21 @@ namespace JMs_Pomodoro
                     Console.WriteLine($"發生錯誤: {ex.Message}");
                 }
             }
+        }
+
+
+        private void play_alarm_sound()
+        {
+            SystemSounds.Beep.Play();
+            Thread.Sleep(300);
+            SystemSounds.Beep.Play();
+            Thread.Sleep(300);
+            SystemSounds.Beep.Play();
+
+            //var player = new SoundPlayer();
+            //player.SoundLocation = "http://billor.chsh.chc.edu.tw/sound/ambul.wav";
+            //player.LoadAsync();
+            //player.PlaySync();
         }
     }
 }
