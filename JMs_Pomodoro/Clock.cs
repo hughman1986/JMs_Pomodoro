@@ -356,7 +356,8 @@ namespace JMs_Pomodoro
 
         private void richTextBox_QuickNote_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r') // 在儲存格按下enter後的動作
+            // 在儲存格按下enter或backspace或,後的動作, 但是keypress事件不會捕捉空白鍵
+            if (e.KeyChar == '\r' || e.KeyChar == '\b' || e.KeyChar == ',')
             {
                 string filepath = $"./TomatoLog/tmptxt.txt";
 

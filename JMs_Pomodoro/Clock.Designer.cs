@@ -46,6 +46,7 @@
             this.dgv_tomato_table = new System.Windows.Forms.DataGridView();
             this.button_Zoom = new System.Windows.Forms.Button();
             this.richTextBox_QuickNote = new System.Windows.Forms.RichTextBox();
+            this.btnSAVE = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -244,11 +245,20 @@
             this.richTextBox_QuickNote.Text = "";
             this.richTextBox_QuickNote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox_QuickNote_KeyPress);
             // 
+            // btnSAVE
+            // 
+            this.btnSAVE.Location = new System.Drawing.Point(874, 405);
+            this.btnSAVE.Name = "btnSAVE";
+            this.btnSAVE.Size = new System.Drawing.Size(75, 23);
+            this.btnSAVE.TabIndex = 16;
+            this.btnSAVE.UseVisualStyleBackColor = true;
+            // 
             // Clock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 443);
+            this.Controls.Add(this.btnSAVE);
             this.Controls.Add(this.richTextBox_QuickNote);
             this.Controls.Add(this.button_Zoom);
             this.Controls.Add(this.dgv_tomato_table);
@@ -291,6 +301,7 @@
         private System.Windows.Forms.DataGridView dgv_tomato_table;
         private System.Windows.Forms.Button button_Zoom;
         private System.Windows.Forms.RichTextBox richTextBox_QuickNote;
+        private System.Windows.Forms.Button btnSAVE;
     }
 }
 
