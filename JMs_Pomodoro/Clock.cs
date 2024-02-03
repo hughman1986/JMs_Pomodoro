@@ -359,23 +359,21 @@ namespace JMs_Pomodoro
             // 在儲存格按下enter或backspace或,後的動作, 但是keypress事件不會捕捉空白鍵
             if (e.KeyChar == '\r' || e.KeyChar == '\b' || e.KeyChar == ',')
             {
-                string filepath = $"./TomatoLog/tmptxt.txt";
+                bool save_sucess = SaveQuickNote();
 
-                try
+                if (save_sucess)
                 {
-                    // 確認目錄存在，如果不存在就建立
-                    string directoryPath = Path.GetDirectoryName(filepath);
-                    if (!Directory.Exists(directoryPath))
-                        Directory.CreateDirectory(directoryPath);
-
-                    // 將字串寫入文字檔
-                    File.WriteAllText(filepath, richTextBox_QuickNote.Text);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"發生錯誤: {ex.Message}");
+                    btnSAVE.Text = "saved!";
+                    btnSAVE.ForeColor = Color.Green;
                 }
             }
+        }
+
+
+        private void richTextBox_QuickNote_TextChanged(object sender, EventArgs e)
+        {
+            btnSAVE.Text = "edit NOT save!!";
+            btnSAVE.ForeColor = Color.Red;
         }
 
 
@@ -392,5 +390,40 @@ namespace JMs_Pomodoro
             //player.LoadAsync();
             //player.PlaySync();
         }
+
+        private void btnSAVE_Click(object sender, EventArgs e)
+        {
+            bool save_sucess = SaveQuickNote();
+
+            if (save_sucess)
+            {
+                btnSAVE.Text = "saved!";
+                btnSAVE.ForeColor = Color.Green;
+            }
+        }
+
+        private bool SaveQuickNote()
+        {
+            string filepath = $"./TomatoLog/tmptxt.txt";
+
+            try
+            {
+                // 確認目錄存在，如果不存在就建立
+                string directoryPath = Path.GetDirectoryName(filepath);
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                // 將字串寫入文字檔
+                File.WriteAllText(filepath, richTextBox_QuickNote.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"發生錯誤: {ex.Message}");
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

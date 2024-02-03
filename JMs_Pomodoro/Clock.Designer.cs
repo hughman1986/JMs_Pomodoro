@@ -243,15 +243,20 @@
             this.richTextBox_QuickNote.Size = new System.Drawing.Size(676, 122);
             this.richTextBox_QuickNote.TabIndex = 15;
             this.richTextBox_QuickNote.Text = "";
+            this.richTextBox_QuickNote.TextChanged += new System.EventHandler(this.richTextBox_QuickNote_TextChanged);
             this.richTextBox_QuickNote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox_QuickNote_KeyPress);
             // 
             // btnSAVE
             // 
-            this.btnSAVE.Location = new System.Drawing.Point(874, 405);
+            this.btnSAVE.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSAVE.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSAVE.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSAVE.Location = new System.Drawing.Point(780, 405);
             this.btnSAVE.Name = "btnSAVE";
-            this.btnSAVE.Size = new System.Drawing.Size(75, 23);
+            this.btnSAVE.Size = new System.Drawing.Size(169, 29);
             this.btnSAVE.TabIndex = 16;
-            this.btnSAVE.UseVisualStyleBackColor = true;
+            this.btnSAVE.UseVisualStyleBackColor = false;
+            this.btnSAVE.Click += new System.EventHandler(this.btnSAVE_Click);
             // 
             // Clock
             // 
