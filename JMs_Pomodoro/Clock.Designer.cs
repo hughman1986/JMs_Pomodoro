@@ -47,6 +47,7 @@
             this.button_Zoom = new System.Windows.Forms.Button();
             this.richTextBox_QuickNote = new System.Windows.Forms.RichTextBox();
             this.btnSAVE = new System.Windows.Forms.Button();
+            this.label_Status = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -170,12 +171,13 @@
             // btn_pin
             // 
             this.btn_pin.BackColor = System.Drawing.Color.Pink;
+            this.btn_pin.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pin.Location = new System.Drawing.Point(4, 7);
             this.btn_pin.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pin.Name = "btn_pin";
-            this.btn_pin.Size = new System.Drawing.Size(84, 29);
+            this.btn_pin.Size = new System.Drawing.Size(56, 29);
             this.btn_pin.TabIndex = 7;
-            this.btn_pin.Text = "Pin on Top ";
+            this.btn_pin.Text = "Pin";
             this.btn_pin.UseVisualStyleBackColor = false;
             this.btn_pin.Click += new System.EventHandler(this.btn_pin_Click);
             // 
@@ -225,6 +227,7 @@
             // 
             // button_Zoom
             // 
+            this.button_Zoom.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Zoom.Location = new System.Drawing.Point(201, 7);
             this.button_Zoom.Margin = new System.Windows.Forms.Padding(4);
             this.button_Zoom.Name = "button_Zoom";
@@ -258,11 +261,21 @@
             this.btnSAVE.UseVisualStyleBackColor = false;
             this.btnSAVE.Click += new System.EventHandler(this.btnSAVE_Click);
             // 
+            // label_Status
+            // 
+            this.label_Status.AutoSize = true;
+            this.label_Status.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Status.Location = new System.Drawing.Point(76, 14);
+            this.label_Status.Name = "label_Status";
+            this.label_Status.Size = new System.Drawing.Size(0, 18);
+            this.label_Status.TabIndex = 17;
+            // 
             // Clock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 443);
+            this.Controls.Add(this.label_Status);
             this.Controls.Add(this.btnSAVE);
             this.Controls.Add(this.richTextBox_QuickNote);
             this.Controls.Add(this.button_Zoom);
@@ -307,6 +320,7 @@
         private System.Windows.Forms.Button button_Zoom;
         private System.Windows.Forms.RichTextBox richTextBox_QuickNote;
         private System.Windows.Forms.Button btnSAVE;
+        private System.Windows.Forms.Label label_Status;
     }
 }
 

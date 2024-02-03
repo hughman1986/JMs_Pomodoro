@@ -137,6 +137,9 @@ namespace JMs_Pomodoro
         /// </summary>
         private void CDTimer_OnCountDownFinished()
         {
+            button_Start_Rest.Enabled = false;
+            button_Start_Work.Enabled = false;
+
             Digit_clock.BackColor = Color.Yellow;
             Current_Tomato.Tomato_EndTime = DateTime.Now;
 
@@ -151,9 +154,8 @@ namespace JMs_Pomodoro
             button_Start_Rest.Enabled = true;
             button_Start_Work.Enabled = true;
             TextBox_Job_description.Text = "";
-
+            label_Status.Text = "";
             Digit_clock.BackColor = Color.LightSteelBlue;
-
             Current_Tomato = new Tomato();
         }
 
@@ -245,15 +247,19 @@ namespace JMs_Pomodoro
             if (CDTimer.IsRunnign)
             {
                 CDTimer.Pause();
+                label_Status.Text = "Clock STOPED";
+
             }
             else if (CDTimer.TimeLeft == new DateTime(1, 1, 1, 0, 0, 0))
             {
                 CDTimer.SetTime(set_time_min, set_time_sec);
                 CDTimer.Start();
+                label_Status.Text = "Clock Runing";
             }
             else
             {
                 CDTimer.Start();
+                label_Status.Text = "Clock Runing";
             }
         }
 
