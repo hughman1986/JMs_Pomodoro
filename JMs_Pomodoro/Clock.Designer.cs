@@ -247,6 +247,7 @@
             this.richTextBox_QuickNote.TabIndex = 15;
             this.richTextBox_QuickNote.Text = "";
             this.richTextBox_QuickNote.TextChanged += new System.EventHandler(this.richTextBox_QuickNote_TextChanged);
+            this.richTextBox_QuickNote.KeyDown += new System.Windows.Forms.KeyEventHandler(this.richTextBox_QuickNote_KeyDown);
             this.richTextBox_QuickNote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox_QuickNote_KeyPress);
             // 
             // btnSAVE

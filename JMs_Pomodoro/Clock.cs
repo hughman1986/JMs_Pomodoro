@@ -383,6 +383,23 @@ namespace JMs_Pomodoro
             btnSAVE.ForeColor = Color.Red;
         }
 
+        private void richTextBox_QuickNote_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 檢查是否按下了 Ctrl 鍵和 S 鍵
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                // 防止聲音響起
+                e.SuppressKeyPress = true;
+                bool save_sucess = SaveQuickNote();
+
+                if (save_sucess)
+                {
+                    btnSAVE.Text = "saved!";
+                    btnSAVE.ForeColor = Color.Green;
+                }
+            }
+
+        }
 
         private void play_alarm_sound()
         {
