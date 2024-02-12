@@ -410,6 +410,8 @@ namespace JMs_Pomodoro
 
             WindowsMediaPlayer myplayer = new WindowsMediaPlayer();
             myplayer.URL = "./source/soft_alarm_clock.mp3";
+            myplayer.settings.volume = 10;
+
             myplayer.controls.play();
         }
 
