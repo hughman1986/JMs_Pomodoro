@@ -14,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static JMs_Pomodoro.ClassUtilitis;
+using WMPLib;
 
 namespace JMs_Pomodoro
 {
@@ -207,8 +208,6 @@ namespace JMs_Pomodoro
                 Tomato_StartTime = DateTime.Now,
                 TomatoType = "work",
             };
-
-
         }
 
 
@@ -403,16 +402,15 @@ namespace JMs_Pomodoro
 
         private void play_alarm_sound()
         {
-            SystemSounds.Beep.Play();
-            Thread.Sleep(300);
-            SystemSounds.Beep.Play();
-            Thread.Sleep(300);
-            SystemSounds.Beep.Play();
+            //SystemSounds.Beep.Play();
+            //Thread.Sleep(300);
+            //SystemSounds.Beep.Play();
+            //Thread.Sleep(300);
+            //SystemSounds.Beep.Play();
 
-            //var player = new SoundPlayer();
-            //player.SoundLocation = "http://billor.chsh.chc.edu.tw/sound/ambul.wav";
-            //player.LoadAsync();
-            //player.PlaySync();
+            WindowsMediaPlayer myplayer = new WindowsMediaPlayer();
+            myplayer.URL = "./source/soft_alarm_clock.mp3";
+            myplayer.controls.play();
         }
 
         private void btnSAVE_Click(object sender, EventArgs e)
