@@ -155,7 +155,7 @@ namespace JMs_Pomodoro
         {
             button_Start_Rest.Enabled = true;
             button_Start_Work.Enabled = true;
-            TextBox_Job_description.Text = "";
+            // TextBox_Job_description.Text = "";
             label_Status.Text = "";
             Digit_clock.BackColor = Color.LightSteelBlue;
             Current_Tomato = new Tomato();
@@ -225,7 +225,7 @@ namespace JMs_Pomodoro
             if (CDTimer.IsRunnign)
                 button_Start_Work.Enabled = false;
 
-            TextBox_Job_description.Text = "Rest";
+            // TextBox_Job_description.Text = "Rest"; 
 
             Current_Tomato = new Tomato
             {
@@ -319,7 +319,11 @@ namespace JMs_Pomodoro
                 reset_UI_item();
                 return;
             }
-            Current_Tomato.Work_description = TextBox_Job_description.Text;
+            if (Current_Tomato.TomatoType == "rest")
+                Current_Tomato.Work_description = "Rest";
+            else
+                Current_Tomato.Work_description = TextBox_Job_description.Text;
+
             if (CDTimer.IsRunnign)
                 Current_Tomato.Tomato_EndTime = DateTime.Now;
 
