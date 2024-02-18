@@ -74,7 +74,7 @@
             this.button_Start_Work.Location = new System.Drawing.Point(3, 2);
             this.button_Start_Work.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Start_Work.Name = "button_Start_Work";
-            this.button_Start_Work.Size = new System.Drawing.Size(116, 47);
+            this.button_Start_Work.Size = new System.Drawing.Size(116, 50);
             this.button_Start_Work.TabIndex = 1;
             this.button_Start_Work.Text = "Work";
             this.button_Start_Work.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             this.button_Start_Rest.Location = new System.Drawing.Point(125, 2);
             this.button_Start_Rest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_Start_Rest.Name = "button_Start_Rest";
-            this.button_Start_Rest.Size = new System.Drawing.Size(117, 47);
+            this.button_Start_Rest.Size = new System.Drawing.Size(117, 50);
             this.button_Start_Rest.TabIndex = 2;
             this.button_Start_Rest.Text = "Rest";
             this.button_Start_Rest.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // 
             this.button_ResetClock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_ResetClock.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_ResetClock.Location = new System.Drawing.Point(3, 61);
+            this.button_ResetClock.Location = new System.Drawing.Point(3, 62);
             this.button_ResetClock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button_ResetClock.Name = "button_ResetClock";
-            this.button_ResetClock.Size = new System.Drawing.Size(247, 55);
+            this.button_ResetClock.Size = new System.Drawing.Size(247, 56);
             this.button_ResetClock.TabIndex = 3;
             this.button_ResetClock.Text = "Reset Clock";
             this.button_ResetClock.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.Digit_clock, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 44);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -142,13 +142,13 @@
             this.tableLayoutPanel3.Controls.Add(this.button_ResetClock, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 104);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 103);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(253, 118);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(253, 120);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // tableLayoutPanel2
@@ -159,13 +159,13 @@
             this.tableLayoutPanel2.Controls.Add(this.button_Start_Work, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button_Start_Rest, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 3);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(245, 51);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(245, 54);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // btn_pin
@@ -173,7 +173,7 @@
             this.btn_pin.BackColor = System.Drawing.Color.Pink;
             this.btn_pin.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_pin.Location = new System.Drawing.Point(4, 7);
-            this.btn_pin.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_pin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_pin.Name = "btn_pin";
             this.btn_pin.Size = new System.Drawing.Size(56, 29);
             this.btn_pin.TabIndex = 7;
@@ -184,7 +184,7 @@
             // TextBox_Job_description
             // 
             this.TextBox_Job_description.Location = new System.Drawing.Point(4, 278);
-            this.TextBox_Job_description.Margin = new System.Windows.Forms.Padding(4);
+            this.TextBox_Job_description.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.TextBox_Job_description.Name = "TextBox_Job_description";
             this.TextBox_Job_description.Size = new System.Drawing.Size(260, 85);
             this.TextBox_Job_description.TabIndex = 8;
@@ -194,7 +194,7 @@
             // 
             this.button_OpenFolder.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_OpenFolder.Location = new System.Drawing.Point(273, 8);
-            this.button_OpenFolder.Margin = new System.Windows.Forms.Padding(4);
+            this.button_OpenFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_OpenFolder.Name = "button_OpenFolder";
             this.button_OpenFolder.Size = new System.Drawing.Size(231, 29);
             this.button_OpenFolder.TabIndex = 12;
@@ -205,8 +205,8 @@
             // button_Commit_MSG
             // 
             this.button_Commit_MSG.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_Commit_MSG.Location = new System.Drawing.Point(4, 371);
-            this.button_Commit_MSG.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Commit_MSG.Location = new System.Drawing.Point(4, 372);
+            this.button_Commit_MSG.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_Commit_MSG.Name = "button_Commit_MSG";
             this.button_Commit_MSG.Size = new System.Drawing.Size(259, 29);
             this.button_Commit_MSG.TabIndex = 0;
@@ -218,7 +218,7 @@
             // 
             this.dgv_tomato_table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_tomato_table.Location = new System.Drawing.Point(273, 44);
-            this.dgv_tomato_table.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_tomato_table.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgv_tomato_table.Name = "dgv_tomato_table";
             this.dgv_tomato_table.RowHeadersWidth = 51;
             this.dgv_tomato_table.RowTemplate.Height = 24;
@@ -229,7 +229,7 @@
             // 
             this.button_Zoom.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_Zoom.Location = new System.Drawing.Point(201, 7);
-            this.button_Zoom.Margin = new System.Windows.Forms.Padding(4);
+            this.button_Zoom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button_Zoom.Name = "button_Zoom";
             this.button_Zoom.Size = new System.Drawing.Size(64, 29);
             this.button_Zoom.TabIndex = 14;
@@ -241,7 +241,7 @@
             // 
             this.richTextBox_QuickNote.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.richTextBox_QuickNote.Location = new System.Drawing.Point(273, 278);
-            this.richTextBox_QuickNote.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBox_QuickNote.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.richTextBox_QuickNote.Name = "richTextBox_QuickNote";
             this.richTextBox_QuickNote.Size = new System.Drawing.Size(676, 122);
             this.richTextBox_QuickNote.TabIndex = 15;
@@ -287,9 +287,10 @@
             this.Controls.Add(this.btn_pin);
             this.Controls.Add(this.label_num_of_tomato);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "Clock";
             this.Text = "Pomodoro";
             this.tableLayoutPanel1.ResumeLayout(false);

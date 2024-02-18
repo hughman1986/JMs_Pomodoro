@@ -104,9 +104,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="source\soft_alarm_clock.mp3">
+    <Content Include="source\alarm-clock-short-6402.mp3" />
+    <Content Include="source\ringtone-incoming-interface-153265.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="source\soft_alarm_clock.mp3" />
     <Content Include="source\tomato3232.ico" />
     <Content Include="source\tomato_icon.png" />
     <Content Include="tomato3232.ico" />

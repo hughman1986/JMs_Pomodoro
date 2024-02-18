@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static JMs_Pomodoro.ClassUtilitis;
 using WMPLib;
+using System.Reflection;
 
 namespace JMs_Pomodoro
 {
@@ -87,6 +88,8 @@ namespace JMs_Pomodoro
             this.Size = new Size(219, 400);
 
             LoadConfig(JsonFilePath, ref tomato_config);
+
+            this.Text += $"(v{Assembly.GetExecutingAssembly().GetName().Version})";
         }
 
         private void load_Todays_data()
@@ -413,8 +416,8 @@ namespace JMs_Pomodoro
             //SystemSounds.Beep.Play();
 
             WindowsMediaPlayer myplayer = new WindowsMediaPlayer();
-            myplayer.URL = "./source/soft_alarm_clock.mp3";
-            myplayer.settings.volume = 10;
+            myplayer.URL = "./source/ringtone-incoming-interface-153265.mp3";
+            myplayer.settings.volume = 30;
 
             myplayer.controls.play();
         }
