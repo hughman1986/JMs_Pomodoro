@@ -149,6 +149,15 @@ namespace JMs_Pomodoro
             label_Status.Text = "Clock STOPPED";
 
             Task.Run(() => play_alarm_sound());
+
+
+            string msg = "";
+            if (Current_Tomato.TomatoType == "rest")
+                msg = "The BREAK has Ended";
+            else
+                msg = "The WORK session has Ended";
+
+            MessageBox.Show(msg, "Session Ended", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>

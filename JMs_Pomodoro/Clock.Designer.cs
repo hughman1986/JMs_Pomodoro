@@ -89,7 +89,7 @@
             this.button_Start_Rest.Name = "button_Start_Rest";
             this.button_Start_Rest.Size = new System.Drawing.Size(117, 50);
             this.button_Start_Rest.TabIndex = 2;
-            this.button_Start_Rest.Text = "Rest";
+            this.button_Start_Rest.Text = "Break";
             this.button_Start_Rest.UseVisualStyleBackColor = true;
             this.button_Start_Rest.Click += new System.EventHandler(this.button_Start_Rest_Click);
             // 
