@@ -157,7 +157,7 @@ namespace JMs_Pomodoro
             else
                 msg = "The WORK session has Ended";
 
-            MessageBox.Show(msg, "Session Ended", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(this, msg, "Session Ended", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         /// <summary>
@@ -211,7 +211,7 @@ namespace JMs_Pomodoro
             ActiveForm.TopMost = true;
             Click_on_Timer(Set_time_minute, Color.Red);
 
-            if (CDTimer.IsRunnign)
+            if (CDTimer.IsRunning)
                 button_Start_Rest.Enabled = false;
 
 
@@ -234,7 +234,7 @@ namespace JMs_Pomodoro
 
             ActiveForm.TopMost = true;
             Click_on_Timer(Set_time_minute, Color.Green);
-            if (CDTimer.IsRunnign)
+            if (CDTimer.IsRunning)
                 button_Start_Work.Enabled = false;
 
             // TextBox_Job_description.Text = "Rest"; 
@@ -256,7 +256,7 @@ namespace JMs_Pomodoro
         {
             Digit_clock.BackColor = color;
 
-            if (CDTimer.IsRunnign)
+            if (CDTimer.IsRunning)
             {
                 CDTimer.Pause();
                 label_Status.Text = "Clock STOPPED";
@@ -336,8 +336,7 @@ namespace JMs_Pomodoro
             else
                 Current_Tomato.Work_description = TextBox_Job_description.Text;
 
-            if (CDTimer.IsRunnign)
-                Current_Tomato.Tomato_EndTime = DateTime.Now;
+            Current_Tomato.Tomato_EndTime = DateTime.Now;
 
             TimeSpan TomatoDuration = Current_Tomato.Tomato_EndTime - Current_Tomato.Tomato_StartTime;
             Current_Tomato.Tomato_Duration = (int)TomatoDuration.TotalMinutes;

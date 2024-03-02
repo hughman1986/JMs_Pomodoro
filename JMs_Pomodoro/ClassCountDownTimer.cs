@@ -10,7 +10,7 @@ public class CountDownTimer : IDisposable
     public Action TimeChanged;
     public Action CountDownFinished;
 
-    public bool IsRunnign => timer.Enabled;
+    public bool IsRunning => timer.Enabled;
 
     public int StepMs
     {
